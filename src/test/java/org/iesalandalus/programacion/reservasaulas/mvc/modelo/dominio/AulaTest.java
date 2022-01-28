@@ -8,7 +8,7 @@ import static org.junit.Assert.fail;
 import org.junit.Test;
 
 public class AulaTest {
-/*	
+	
 	private static final String ERROR_EXCEPCION = "Debería haber saltado la excepción.";
 	private static final String ERROR_NO_EXCEPCION = "No debería haber saltado la excepción.";
 	private static final String NOMBRE = "Salón de actos";
@@ -31,15 +31,15 @@ public class AulaTest {
 			String nombre = null;
 			aula = new Aula(nombre);
 			fail(ERROR_EXCEPCION);
-		} catch (IllegalArgumentException e) {
-			assertEquals("El nombre del aula no puede ser nulo.", e.getMessage());
+		} catch (NullPointerException e) {
+			assertEquals("ERROR: El nombre del aula no puede ser nulo.", e.getMessage());
 			assertNull(aula);
 		}
 		try {
 			aula = new Aula("");
 			fail(ERROR_EXCEPCION);
 		} catch (IllegalArgumentException e) {
-			assertEquals("El nombre del aula no puede estar vacío.", e.getMessage());
+			assertEquals("ERROR: El nombre del aula no puede estar vacío.", e.getMessage());
 			assertNull(aula);
 		}
 	}
@@ -63,8 +63,8 @@ public class AulaTest {
 			Aula aula1 = null;
 			aula = new Aula(aula1);
 			fail(ERROR_EXCEPCION);
-		} catch (IllegalArgumentException e) {
-			assertEquals("No se puede copiar un aula nula.", e.getMessage());
+		} catch (NullPointerException e) {
+			assertEquals("ERROR: No se puede copiar un aula nula.", e.getMessage());
 			assertNull(aula);
 		}
 	}
@@ -100,7 +100,7 @@ public class AulaTest {
 	@Test
 	public void toStringTest() {
 		Aula aula = new Aula(NOMBRE);
-		assertEquals("[nombre=Salón de actos]", aula.toString());
+		assertEquals("nombre Aula=Salón de actos", aula.toString());
 	}
-*/
+
 }

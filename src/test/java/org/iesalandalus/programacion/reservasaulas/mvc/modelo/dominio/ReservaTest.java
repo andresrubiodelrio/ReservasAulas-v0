@@ -7,11 +7,15 @@ import static org.junit.Assert.fail;
 
 import java.time.LocalDate;
 
-
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Aula;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Permanencia;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Profesor;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Reserva;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Tramo;
 import org.junit.Test;
 
 public class ReservaTest {
-/*	
+	
 	private static final String ERROR_EXCEPCION = "Debería haber saltado la excepción.";
 	private static final String ERROR_NO_EXCEPCION = "No debería haber saltado la excepción.";
 	private static final String nombreProfesor = "José Ramón";
@@ -42,22 +46,22 @@ public class ReservaTest {
 		try {
 			reserva = new Reserva(null, aula, permanencia);
 			fail(ERROR_EXCEPCION);
-		} catch (IllegalArgumentException e) {
-			assertEquals("La reserva debe estar a nombre de un profesor.", e.getMessage());
+		} catch (NullPointerException e) {
+			assertEquals("ERROR: La reserva debe estar a nombre de un profesor.", e.getMessage());
 			assertNull(reserva);
 		}
 		try {
 			reserva = new Reserva(profesor, null, permanencia);
 			fail(ERROR_EXCEPCION);
-		} catch (IllegalArgumentException e) {
-			assertEquals("La reserva debe ser para un aula concreta.", e.getMessage());
+		} catch (NullPointerException e) {
+			assertEquals("ERROR: La reserva debe ser para un aula concreta.", e.getMessage());
 			assertNull(reserva);
 		}
 		try {
 			reserva = new Reserva(profesor, aula, null);
 			fail(ERROR_EXCEPCION);
-		} catch (IllegalArgumentException e) {
-			assertEquals("La reserva se debe hacer para una permanencia concreta.", e.getMessage());
+		} catch (NullPointerException e) {
+			assertEquals("ERROR: La reserva se debe hacer para una permanencia concreta.", e.getMessage());
 			assertNull(reserva);
 		}
 	}
@@ -82,8 +86,8 @@ public class ReservaTest {
 		try {
 			reserva = new Reserva(null);
 			fail(ERROR_EXCEPCION);
-		} catch (IllegalArgumentException e) {
-			assertEquals("No se puede copiar una reserva nula.", e.getMessage());
+		} catch (NullPointerException e) {
+			assertEquals("ERROR: No se puede copiar una reserva nula.", e.getMessage());
 			assertNull(reserva);
 		}
 	}
@@ -121,9 +125,9 @@ public class ReservaTest {
 	@Test
 	public void toStringTest() {
 		Reserva reserva = new Reserva(profesor, aula, permanencia);
-		String cadenaEsperada = "[profesor=[nombre=José Ramón, correo=joseramon.jimenez@iesalandalus.org]"
-				+ ", aula=[nombre=Salón de actos], permanencia=[dia=01/12/2018, tramo=Mañana]]";
+		String cadenaEsperada = "Profesor=nombre=José Ramón, correo=joseramon.jimenez@iesalandalus.org"
+				+ ", aula=nombre Aula=Salón de actos, permanencia=dia=01/12/2018, tramo=Mañana";
 		assertEquals(cadenaEsperada, reserva.toString());
 	}
-*/
+
 }

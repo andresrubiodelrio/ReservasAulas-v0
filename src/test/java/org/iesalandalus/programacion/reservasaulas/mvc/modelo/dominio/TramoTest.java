@@ -2,11 +2,11 @@ package org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio;
 
 import static org.junit.Assert.*;
 
-
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Tramo;
 import org.junit.Test;
 
 public class TramoTest {
-/*
+
 	@Test
 	public void identificadoresValidosTest() {
 		Tramo tramo;
@@ -27,5 +27,5 @@ public class TramoTest {
 		assertEquals("Mañana", Tramo.MANANA.toString());
 		assertEquals("Tarde", Tramo.TARDE.toString());
 	}
-*/
+
 }

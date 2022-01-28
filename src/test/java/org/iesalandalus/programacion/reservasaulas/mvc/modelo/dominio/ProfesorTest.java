@@ -2,11 +2,11 @@ package org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio;
 
 import static org.junit.Assert.*;
 
-
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Profesor;
 import org.junit.Test;
 
 public class ProfesorTest {
-/*	
+	
 	private static final String ERROR_EXCEPCION = "Debería haber saltado la excepción.";
 	private static final String ERROR_NO_EXCEPCION = "No debería haber saltado la excepción.";
 	private static final String nombre = "José Ramón";
@@ -56,29 +56,29 @@ public class ProfesorTest {
 		try {
 			profesor = new Profesor(null, correo);
 			fail(ERROR_EXCEPCION);
-		} catch (IllegalArgumentException e) {
-			assertEquals("El nombre del profesor no puede ser nulo.", e.getMessage());
+		} catch (NullPointerException e) {
+			assertEquals("ERROR: El nombre del profesor no puede ser nulo.", e.getMessage());
 			assertNull(profesor);
 		}
 		try {
 			profesor = new Profesor("", correo);
 			fail(ERROR_EXCEPCION);
 		} catch (IllegalArgumentException e) {
-			assertEquals("El nombre del profesor no puede estar vacío.", e.getMessage());
+			assertEquals("ERROR: El nombre del profesor no puede estar vacío.", e.getMessage());
 			assertNull(profesor);
 		}
 		try {
 			profesor = new Profesor(nombre, null);
 			fail(ERROR_EXCEPCION);
-		} catch (IllegalArgumentException e) {
-			assertEquals("El correo del profesor no puede ser nulo.", e.getMessage());
+		} catch (NullPointerException e) {
+			assertEquals("ERROR: El correo del profesor no puede ser nulo.", e.getMessage());
 			assertNull(profesor);
 		}
 		try {
 			profesor = new Profesor(nombre, "");
 			fail(ERROR_EXCEPCION);
 		} catch (IllegalArgumentException e) {
-			assertEquals("El correo del profesor no es válido.", e.getMessage());
+			assertEquals("ERROR: El correo del profesor no es válido.", e.getMessage());
 			assertNull(profesor);
 		}
 	}
@@ -90,7 +90,7 @@ public class ProfesorTest {
 			profesor = new Profesor(nombre, correo, "");
 			fail(ERROR_EXCEPCION);
 		} catch (IllegalArgumentException e) {
-			assertEquals("El teléfono del profesor no es válido.", e.getMessage());
+			assertEquals("ERROR: El teléfono del profesor no es válido.", e.getMessage());
 			assertNull(profesor);
 		}
 	}
@@ -114,8 +114,8 @@ public class ProfesorTest {
 		try {
 			profesor = new Profesor(null);
 			fail(ERROR_EXCEPCION);
-		} catch (IllegalArgumentException e) {
-			assertEquals("No se puede copiar un profesor nulo.", e.getMessage());
+		} catch (NullPointerException e) {
+			assertEquals("ERROR: No se puede copiar un profesor nulo.", e.getMessage());
 			assertNull(profesor);
 		}
 	}
@@ -150,8 +150,8 @@ public class ProfesorTest {
 	
 	@Test
 	public void toStringTest() {
-		assertEquals("[nombre=José Ramón, correo=joseramon.jimenez@iesalandalus.org, telefono=950112233]", profesorConTelefono.toString());
-		assertEquals("[nombre=José Ramón, correo=joseramon.jimenez@iesalandalus.org]", profesorSinTelefono.toString());
+		assertEquals("nombre=José Ramón, correo=joseramon.jimenez@iesalandalus.org, telefono=950112233", profesorConTelefono.toString());
+		assertEquals("nombre=José Ramón, correo=joseramon.jimenez@iesalandalus.org", profesorSinTelefono.toString());
 	}
-*/
+
 }

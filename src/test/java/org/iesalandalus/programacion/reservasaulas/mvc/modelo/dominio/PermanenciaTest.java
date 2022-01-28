@@ -4,11 +4,12 @@ import static org.junit.Assert.*;
 
 import java.time.LocalDate;
 
-
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Permanencia;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Tramo;
 import org.junit.Test;
 
 public class PermanenciaTest {
-/*	
+	
 	private static final String ERROR_EXCEPCION = "Debería haber saltado la excepción.";
 	private static final String ERROR_NO_EXCEPCION = "No debería haber saltado la excepción.";
 	
@@ -34,15 +35,15 @@ public class PermanenciaTest {
 		try {
 			permanencia = new Permanencia(LocalDate.of(2018, 12, 1), null);
 			fail(ERROR_EXCEPCION);
-		} catch (IllegalArgumentException e) {
-			assertEquals("El tramo de una permanencia no puede ser nulo.", e.getMessage());
+		} catch (NullPointerException e) {
+			assertEquals("ERROR: El tramo de una permanencia no puede ser nulo.", e.getMessage());
 			assertNull(permanencia);
 		}
 		try {
 			permanencia = new Permanencia(null, Tramo.MANANA);
 			fail(ERROR_EXCEPCION);
-		} catch (IllegalArgumentException e) {
-			assertEquals("El día de una permanencia no puede ser nulo.", e.getMessage());
+		} catch (NullPointerException e) {
+			assertEquals("ERROR: El día de una permanencia no puede ser nulo.", e.getMessage());
 			assertNull(permanencia);
 		}
 	}
@@ -65,8 +66,8 @@ public class PermanenciaTest {
 		try {
 			otraPermanencia = new Permanencia(null);
 			fail(ERROR_EXCEPCION);
-		} catch (IllegalArgumentException e) {
-			assertEquals("No se puede copiar una permanencia nula.", e.getMessage());
+		} catch (NullPointerException e) {
+			assertEquals("ERROR: No se puede copiar una permanencia nula.", e.getMessage());
 			assertNull(otraPermanencia);
 		}
 	}
@@ -99,7 +100,7 @@ public class PermanenciaTest {
 	
 	@Test
 	public void toStringTest() {
-		assertEquals("[dia=01/12/2018, tramo=Mañana]", permanencia.toString());
+		assertEquals("dia=01/12/2018, tramo=Mañana", permanencia.toString());
 	}
-*/
+
 }
