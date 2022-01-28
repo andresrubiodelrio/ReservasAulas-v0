@@ -16,11 +16,17 @@ import java.time.LocalDate;
 
 import javax.naming.OperationNotSupportedException;
 
-
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Reserva;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Aula;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Permanencia;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Profesor;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Reserva;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Tramo;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.Reservas;
 import org.junit.Test;
 
 public class ReservasTest {
-/*	
+	
 	private static final String RESERVAS_NO_CREADAS = "Debería haber creado las reservas correctamente.";
 	private static final String TAMANO_NO_ESPERADO = "El tamaño devuelto no es el esperado.";
 	private static final String OPERACION_NO_PERMITIDA = "Debería haber saltado una excepción indicando que dicha operación no está permitida.";
@@ -340,7 +346,7 @@ public class ReservasTest {
 			reservas.insertar(reserva1);
 			reservas.borrar(null);
 			fail(RESERVA_NULA);
-		} catch (IllegalArgumentException e) {
+		} catch (NullPointerException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_BORRAR_RESERVA_NULA));
 			assertThat(TAMANO_NO_ESPERADO, reservas.getTamano(), is(1));
 		} catch (Exception e) {
@@ -355,7 +361,7 @@ public class ReservasTest {
 			reservas.insertar(reserva1);
 			reservas.buscar(null);
 			fail(RESERVA_NULA);
-		} catch (IllegalArgumentException e) {
+		} catch (NullPointerException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_BUSCAR_RESERVA_NULA));
 			assertThat(TAMANO_NO_ESPERADO, reservas.getTamano(), is(1));
 		} catch (Exception e) {
@@ -505,8 +511,8 @@ public class ReservasTest {
 			fail(ERROR_EXCEPCION);
 						
 		}
-		catch (IllegalArgumentException e) {
-			assertEquals("No se puede consultar la disponibilidad de un aula nula.", e.getMessage());
+		catch (NullPointerException e) {
+			assertEquals("ERROR: No se puede consultar la disponibilidad de un aula nula.", e.getMessage());
 		}
 		catch (OperationNotSupportedException e)
 		{
@@ -517,9 +523,9 @@ public class ReservasTest {
 		{
 			reservas.consultarDisponibilidad(aula1, null);
 			fail(ERROR_EXCEPCION);
-		} catch (IllegalArgumentException e) {
-			assertEquals("No se puede consultar la disponibilidad de una permanencia nula.", e.getMessage());
+		} catch (NullPointerException e) {
+			assertEquals("ERROR: No se puede consultar la disponibilidad de una permanencia nula.", e.getMessage());
 		}
 	}
-*/
+
 }

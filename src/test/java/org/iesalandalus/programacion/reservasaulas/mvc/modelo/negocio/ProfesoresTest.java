@@ -13,11 +13,13 @@ import static org.junit.Assert.fail;
 
 import javax.naming.OperationNotSupportedException;
 
-
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Aula;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.dominio.Profesor;
+import org.iesalandalus.programacion.reservasaulas.mvc.modelo.negocio.Profesores;
 import org.junit.Test;
 
 public class ProfesoresTest {
-/*	
+	
 	private static final String NOMBRE_PROFESOR1 = "José Ramón";
 	private static final String NOMBRE_PROFESOR2 = "Andrés";
 	private static final String NOMBRE_PROFESOR3 = "Begoña";
@@ -78,7 +80,28 @@ public class ProfesoresTest {
 		}
 	}
 	
+	/*
+	@Test
+	public void constructorCopiaValidoTest() {
+		Aulas aulas1 = new Aulas();
+		Aulas aulas2;
+		aulas2 = new Aulas(aulas1);
+		assertEquals(0, aulas2.getNumAulas());
+		assertNotEquals(aulas1.getAulas(), aulas2.getAulas());
+	}
 	
+	@Test
+	public void constructorCopiaNoValidoTest() {
+		Aulas aulas = null;
+		Aulas aulas1 = null;
+		try {
+			aulas1 = new Aulas(aulas);
+			fail(ERROR_EXCEPCION);
+		} catch (IllegalArgumentException e) {
+			assertEquals("No se pueden copiar aulas nulas.", e.getMessage());
+			assertNull(aulas1);
+		}
+	}*/
 	
 	@Test
 	public void insertarProfesorValidoConProfesoresVaciosInsertaProfesorCorrectamente() {
@@ -323,7 +346,7 @@ public class ProfesoresTest {
 			profesores.insertar(profesor1);
 			profesores.borrar(null);
 			fail(PROFESOR_NULO);
-		} catch (IllegalArgumentException e) {
+		} catch (NullPointerException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_BORRAR_PROFESOR_NULO));
 			assertThat(TAMANO_NO_ESPERADO, profesores.getTamano(), is(1));
 		} catch (Exception e) {
@@ -338,7 +361,7 @@ public class ProfesoresTest {
 			profesores.insertar(profesor1);
 			profesores.buscar(null);
 			fail(PROFESOR_NULO);
-		} catch (IllegalArgumentException e) {
+		} catch (NullPointerException e) {
 			assertThat(MENSAJE_NO_CORRECTO, e.getMessage(), is(ERROR_BUSCAR_PROFESOR_NULO));
 			assertThat(TAMANO_NO_ESPERADO, profesores.getTamano(), is(1));
 		} catch (Exception e) {
@@ -365,5 +388,5 @@ public class ProfesoresTest {
 		}
 		
 	}
-*/
+
 }
